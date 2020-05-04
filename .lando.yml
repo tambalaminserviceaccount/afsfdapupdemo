@@ -1,0 +1,17 @@
+name: acndrupaldemo
+recipe: drupal8
+config:
+  webroot: docroot
+services:
+  appserver:
+    xdebug: false
+    build_as_root:
+      - >-
+        echo "Run additional build commands here. Run lando rebuild after
+        updating this file."
+    overrides:
+      image: 'acquia/ads-local:lando-php-7.3-nodejs-10'
+      cap_add:
+        - SYS_ADMIN
+  phpmyadmin:
+    type: phpmyadmin
